@@ -3,62 +3,42 @@
 #include <string>
 #include "lib.h"
 using namespace std; 
-
-
-//COSTRUTTORE
-Book::Book(string nome,string cognome,string titolo,string isbn); 
-: cod(isbn), tit(titolo), name(nome), surname(cognome);
-    //function member 
-
+    //function member BOOK
     //GET
     string Book::getIsbn(){
-        cout<<"Codice ISBN: "<<cod;
+        return isbn;
     }
     string Book::getNome()
     {
-        cout<<name; 
+        return nome;
     }
     string Book::getCognome()
     {
-        cout<<surname<<"\n";
+        return cognome;
     }
     string Book::getTitolo(){
-        string titolo;
-        cout<<"Titolo del libro e' "<<titolo;
+        return titolo;
     }
 
     bool Book::getDisponibile(){
-
         return disponibile;
     }
 
     //SET
     void Book::setIsbn(string i){
-        string i;
-        cout<<"Inserire codice ISBN: ";
-        cin>>i;
-        cod=i;
+        isbn=i;
     }
 
-    void Book::setTitolo(){
-        string t;
-        cout<<"Inserire titolo del libbro: ";
-        cin>>t;
-        tit=t;
+    void Book::setTitolo(string t){
+        titolo=t;
     }
 
-    void Book::setNome(){
-        string n;
-        cout<<"Inserire nome autore: ";
-        cin>>n;
-        name=n;
+    void Book::setNome(string n){
+        nome=n;
     }
 
-    void Book::setCognome(){
-        string c;
-        cout<<"Inserire cognome autore: ";
-        cin>>c;
-        surname=c;
+    void Book::setCognome(string c){
+        cognome=c;
     }
 
     //setDate?????
@@ -67,15 +47,16 @@ Book::Book(string nome,string cognome,string titolo,string isbn);
         disponibile=d;
     }
 
-    void Book::prestitoRestituzione(string isbn){
+    void Book::prestitoRestituzione(Book i){
         string scelta;
+        Book isbn=i;
         if(isbn.getDisponibile()==true){
             do{
                 cout<<"Il libro e' disponibile, vuoi prenderlo? (y=si, n=no)";
                 cin>>scelta;
-            }while (scelta != 'y' || scelta != 'n');
+            }while (scelta != "y" || scelta != "n");
             //scelgo se prendere il libro oppure no
-            if(scelta=='y'){
+            if(scelta=="y"){
                 cout<<"Hai preso il libro!";
                 disponibile=false;
             }else{
@@ -85,9 +66,9 @@ Book::Book(string nome,string cognome,string titolo,string isbn);
             do{
                 cout<<"Hai il libro, vuoi restituirlo? (y=si, n=no)";
                 cin>>scelta;
-            }while (scelta != 'y' || scelta != 'n');
+            }while (scelta != "y" || scelta != "n");
             //Scelgo se restituire il libro o no
-            if(scelta=='y'){
+            if(scelta=="y"){
                 cout<<"Hai restituito il libro!";
                 disponibile=true;
             }else{
@@ -97,17 +78,16 @@ Book::Book(string nome,string cognome,string titolo,string isbn);
     }
 
     //OVERLOAD
-    bool Book::operator==(Book lib1,Book lib2){
-        if(strcmp(lib1.getIsbn(),lib2.getIsbn())==0){
+    bool operator==(Book lib1, Book lib2){
+        if(lib1.getIsbn()==lib2.getIsbn()){
             //==0 -> string uguale
             return true;
-        }else{
-            return false;
         }
+            return false;
     }
 
-    bool Book::operator !=(Book lib1,Book lib2){
-        if(strcmp(lib1.getIsbn(),lib2.getIsbn())!=0){
+    bool operator !=(Book lib1,Book lib2){
+        if(lib1.getIsbn()!=lib2.getIsbn()){
             //!=0 -> string diverso
             return true;
         }else{
@@ -115,65 +95,53 @@ Book::Book(string nome,string cognome,string titolo,string isbn);
         }
     }
 
-    void Book::operator<<(Book lib1){
-        Book lib1;
-        cout<< "Titolo: "<< lib1.getTitolo()<< "\n";
-        cout<< "Nome: "<<lib1.getNome();
-        cout<< lib1.getCognome()<< "\n";
-        cout<< "Codice libro: "<<lib1.getIsbn()<< "\n";
-        cout<< "Data copyright: "<<lib1.getData()<< "\n";
+    ostream& operator<<(ostream& os, Book lib1, Date datina){   
+        os<< "Titolo: "<< lib1.getTitolo()<< "\n";
+        os<< "Nome: "<<lib1.getNome();
+        os<< lib1.getCognome()<< "\n";
+        os<< "Codice libro: "<<lib1.getIsbn()<< "\n";
+        os<< "Data copyright: "<<datina.getData()<< "\n";
+        return os;
     }
 
 
-
-Date::Date (int yy, int mm, int dd); : y (yy), m(mm), d(dd);   
-
-
-void Date::setData()
-{
-    int yr;
-    cout<<"Inserire anno di coyright:";
-    cin>>yr;
-    y=yr;
-    int m=month;
-    cout<<"Inserire mese: ";
-    cin>>month;
-    m=month;
-    int day;
-    cout<<"Inserire giorno: ";
-    cin>>day;
-    d=day;
-}
-void Date::getData()
-{
-    cout<<"L'anno del copyright ?: "<<y<<"/"<<mm<<"/"<<day<<"\n";
-    //check mese 
-}
-
-bool Date::check_isbn(String isbn_number){ //controlla che la classe sia nel formato n-n-n-x
-    if(isbn_number.empty()){
-        cout<<"Non hai inserito nessun codice\n";
-        return false;
+    void Date::setData(int y, int m, int d)
+    {
+        year=y;
+        month=m;
+        day=d;    
     }
-    int n = isbn_number.length();
-    if (n != 10){
-        return false;
+    
+    string Date::getData()
+    {
+        return "L'anno del copyright ?: "<< year <<"/"<< month <<"/"<< day;
+        //check mese 
     }
-        
-    int sum = 0;
-    for (int i = 0; i < 9; i++) {
-        int value = isbn_number[i] - '0';
 
-        if (0 > value || 9 < value){
-             return false;
+    bool Book::check_isbn(string isbn_number){ //controlla che la classe sia nel formato n-n-n-x
+        if(isbn_number.empty()){
+            cout<<"Non hai inserito nessun codice\n";
+            return false;
         }
-        sum += (value * (10 - i));
+        int n = isbn_number.length();
+        if (n != 10){
+            return false;
+        }
+            
+        int sum = 0;
+        for (int i = 0; i < 9; i++) {
+            int value = isbn_number[i] - '0';
+
+            if (0 > value || 9 < value){
+                return false;
+            }
+            sum += (value * (10 - i));
+        }
+        char last_val = isbn_number[9];
+        if (last_val != 'X' && (last_val < '0' || last_val > '9')){
+            return false;
+        }
+            
+        sum += ((last_val == 'X') ? 10 : (last_val - '0'));
+        return (sum % 11 == 0);     
     }
-    char last_val = isbn_number[9];
-    if (last_val != 'X' && (last_val < '0' || last_val > '9')){
-        return false;
-    }
-        
-    sum += ((last_val == 'X') ? 10 : (last_val - '0'));
-    return (sum % 11 == 0);     
-}
