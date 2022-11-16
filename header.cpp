@@ -6,13 +6,22 @@ using namespace std;
 //file classe
 class Book{
     public:
-    string isbn;  //codice del libro
+    //codice del libro
+    string isbn; 
+    //titolo  
     string titolo;
-    string nome;
-    string cognome;
+    //autore
+    string nome;   
+    string cognome;  
+    //disponibilità
+    bool disponibile = true;  //se true=dispoinibile, false = in prestito
+    
     Date data();
     class Invalid();
-    bool disponibile = true;  //se true=dispoinibile, false = in prestito
+    
+    //COSTRUTTORE
+    Book(string isbn,string titolo,string nome,string cognome,bool disponibile); 
+
 
     //function member 
 
@@ -53,6 +62,19 @@ class Book{
         disponibile=d;
     }
 
+    void prestitoRestituzione(){
+        if(disponibile==true){
+            string scelta;
+            do{
+            cout<<"Il libro è disponibile, vuoi prenderlo? (y=si, n=no)"
+            cin>>scelta;
+            }while (scelta != 'y' )
+            disponibile=false;
+        }else{
+            cout<<
+        }
+    }
+
     private:   
     bool is_valid();        //utilizzabile da tutti i costruttori. correttezza dello stato dellì costruttore
 };
@@ -63,6 +85,8 @@ class Book{
 class Date{
     public:
     Date (int yy, Month mm, int dd); : y (yy), m(mm), d(dd);   
+    if(!is_valid()) {throw Inavlid();}
+    
     //anno inizio<<year<<2022;    1<<day<<31 così copriamo tutti i giorni dei vari mesi  
     int year();
     int day();
@@ -76,17 +100,24 @@ enum class Month
     jan=1,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec   //avendo messo 1 come dato di partenza, incremento automatico da 1. 
                                                          //se non lo imposto parte da 0
 }
-bool check_isbn(String str){ //controlla che la classe sia nel formato n-n-n-x
+bool check_isbn(string str){ //controlla che la classe sia nel formato n-n-n-x
     if(str.empty()){
         cout<<"Non hai inserito nessun codice\n";
         return false;
     }
-    else{
-        if(str.length()!=10){
-        cout<<"il codice ISBN deve avere il seguente formato\n";
+    else if(str.length()!=13){
+        cout<<"il codice ISBN deve avere il seguente formato nnn-nnn-nnnn-x\n";
         }
+    //substring
+    //controllo 3a3 per gli interi
+    int nnn = s.find("-");
+    string sub = s.substr(0,nnn);
+    if(sub)
+        
     }
     
-    //substring
     
+bool Date::is_valid()
+{
+    if()
 }
