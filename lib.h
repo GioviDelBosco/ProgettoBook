@@ -1,25 +1,26 @@
 //headere file
+using namespace std;
 class Book{
     public:
     Book(string isbn,string titolo,string nome,string cognome,bool disponibile); 
     void setIsbn();
-    void getIsbn();
+    string getIsbn();
     void setTitolo();
-    void getTitolo();
+    string getTitolo();
     void setNome();
-    void getNome();
+    string getNome();
     void setCognome();
-    void getCognome();
+    string getCognome();
     void setDisponibile();
-    void getDisponibile();
+    bool getDisponibile();
 
     private:
     string isbn;
-    string Titolo;
-    string Nome;
-    string Cognome;
+    string titolo;
+    string nome;
+    string cognome;
     bool disponibile;
-}
+};
 
 //per copyright
 
@@ -29,12 +30,13 @@ class Date{
         jan=1,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec
     }*/ 
     public:
-    Date(int y, Month m, int d);
+    Date(int y, int m, int d);
     void setData();
     void getData();
     void StampaData();
 
     private:
     int year;
+    int month;
     int day;
-}
+};

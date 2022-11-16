@@ -163,7 +163,7 @@ bool Date::check_isbn(String isbn_number){ //controlla che la classe sia nel for
     int sum = 0;
     for (int i = 0; i < 9; i++) {
         int value = isbn_number[i] - '0';
-        
+
         if (0 > value || 9 < value){
              return false;
         }
