@@ -23,7 +23,11 @@ class Book{
 
 //per copyright
 
-class Date{ 
+class Date{
+    /*enum class Month
+    {
+        jan=1,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec
+    }*/ 
     public:
     Date(int y, Month m, int d);
     void setData();
@@ -31,6 +35,6 @@ class Date{
     void StampaData();
 
     private:
-    int y;
-    int d;
+    int year;
+    int day;
 }

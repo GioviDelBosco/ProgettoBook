@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include "header.h"
+#include "lib.h"
+#include "header.cpp"
 
 using namespace std;
 
@@ -8,8 +9,19 @@ using namespace std;
 //main
 int main()
 {
-    string isbn;
-    isbn.setIsbn();
-    isbn.getIsbn();
+
+    Book n;
+    n.setNome();
+    n.getNome();
+    Book s;
+    s.setCognome();
+    s.getCognome();
+    Book t;
+    t.setTitolo();
+    t.getTitolo();
+    Book cod;
+    cod.setIsbn();
+    cod.getIsbn();
+
     return 0;
 }
