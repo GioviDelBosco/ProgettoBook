@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 //main
 int main()
 {
@@ -22,6 +21,5 @@ int main()
     Book cod;
     cod.setIsbn();
     cod.getIsbn();
-
     return 0;
 }

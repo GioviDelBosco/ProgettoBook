@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+ //yo sgara arrivo  pono pono
 //headere file
 using namespace std;
 class Date{
@@ -10,16 +10,18 @@ class Date{
     }*/ 
     public:
     Date(int y, int m, int d);
-    void setData(int year, int month, int day);
+    void setData(int day, int month, int year);
     string getData();
     void StampaData();
+    bool check_data(int day, int month,int year);
+    friend ostream& operator<<(ostream& os, const Date& d);
 
     private:
     int year;
     int month;
     int day;
-};
-
+}; 
+ 
 class Book{
     public:
     Book(string isbn,string titolo,string nome,string cognome,bool disponibile); 
@@ -34,8 +36,8 @@ class Book{
     void setDisponibile(bool d);
     bool getDisponibile();
     void prestitoRestituzione(Book i);
-    bool check_isbn();
-    //friend ostream& operator<<(ostream& os, const Book& lib1,const Date& datina);
+    bool check_isbn(string& isbn_number);
+    friend ostream& operator<<(ostream& os, Book& lib);
 
     private:
     string isbn;
@@ -46,4 +48,3 @@ class Book{
 };
 
 //per copyright
-
