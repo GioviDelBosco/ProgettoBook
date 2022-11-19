@@ -20,7 +20,6 @@ public:
     string getData();
     void StampaData();
     bool check_data(int day, int month, int year);
-    friend ostream &operator<<(ostream &os, const Date &d);
 };
 
 class Book

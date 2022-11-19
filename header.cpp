@@ -182,7 +182,7 @@ bool operator!=(Book lib1, Book lib2)
     }
 }
 
-ostream &operator<<(ostream &os, Book lib1) // const Date& datina)
+ostream& operator<<(ostream &os, Book lib1) // const Date& datina)
 {
     os << "Titolo: " << lib1.getTitolo() << "\n"
        << "Nome: " << lib1.getNome() <<" "<< lib1.getCognome() << "\n"
