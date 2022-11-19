@@ -24,9 +24,9 @@ int main()
 
     bool continua = true;
 
-    vector<Book> shelf;
-    vector<Date> date;
-    vector<Book> loan; // libro prestito
+    vector<Book> shelf (10);
+    vector<Date> date (10);
+    vector<Book> loan(10); // libro prestito
 
     do
     {
