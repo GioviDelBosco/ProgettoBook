@@ -1,9 +1,10 @@
 //file.h classe Date
 //CAMBIA NOME FILE
-#include<iostream>
-#include <string>
 #ifndef DATA
 #define DATA
+#include<iostream>
+#include <string>
+
 
 using namespace std;
 class Date{
