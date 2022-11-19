@@ -41,9 +41,11 @@ using namespace std;
 bool Date::check_data(int day,int month,int year){
     if(year<1650 || year>2022)
     {
+        cout<<"Data non valida\n";
         return false;
     }
-    else if(month<1 || month>12){       
+    else if(month<1 || month>12){  
+        cout<<"Data non valida\n";     
         return false;
         
     }
@@ -51,21 +53,27 @@ bool Date::check_data(int day,int month,int year){
     {
         if(month==2)
         {
-            if(day<1 || day>29)
-            return false;
+            if(day<1 || day>29){
+                cout<<"Data non valida\n";
+                return false;
+            }
+            
         }
     }
     else{
         if(month==4 || month==6 || month==9 || month==11){
             if(day<1 || day>30){
+                cout<<"Data non valida\n";
                 return false;
             }   
         }
         else if(day<1 || day>31){
+            cout<<"Data non valida\n";
             return false;
         }
         else if(month==2 && day>28){
-        return false;
+            cout<<"Data non valida\n";
+            return false;
         }
     }
     return true;

@@ -15,7 +15,7 @@ class Date{
     void setData(int d,int m,int y);
     string getData();
     //void StampaData();
-    bool check_data(int day, int month,int year);
+    static bool check_data(int day, int month,int year);
 
     private:
     int day;

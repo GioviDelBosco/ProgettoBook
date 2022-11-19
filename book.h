@@ -11,6 +11,8 @@ class Book
 {
     
 public:
+    
+
     Book(string isbn, string titolo, string nome, string cognome, bool disponibile)
     :  isbn(isbn), titolo(titolo), nome(nome), cognome(cognome), disponibile(true){}
     void setIsbn(string i);
@@ -23,7 +25,7 @@ public:
     string getCognome();
     void setDisponibile(bool d);
     bool getDisponibile();
-    void prestitoRestituzione(Book i);
+    static void prestitoRestituzione(Book& i);
     static bool check_isbn(string isbn_number);
     
 
