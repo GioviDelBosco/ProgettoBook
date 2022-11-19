@@ -113,8 +113,11 @@ bool Book::check_isbn(string isbn_number)
         char value = isbn_number[i];
         if (i == 3 || i == 7 || i == 11)
         {
-            if (value != '-')
+            if (value != '-'){
+                cout<<"ISBN errato";
                 return false;
+            }
+                
         }
         else if (value < '0' || value > '9')
         {

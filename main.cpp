@@ -38,7 +38,7 @@ int main()
             cout << "Inserisci i dati del libro per inserirlo nella libreria\n";
             do
             {
-                cout << "Inserisci l'isbn\n";
+                cout << "Inserisci l'isbn (seguendo la sintassi xxx-xxx\n";
                 cin >> isbn;
             } while (Book::check_isbn(isbn) == false);
 
