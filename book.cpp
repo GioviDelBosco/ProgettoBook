@@ -4,6 +4,30 @@
 #include "book.h"
 
 using namespace std;
+Book::Book()
+{
+    isbn = "111-111-111-a";
+    nome = "";
+    cognome = "";
+    titolo = "";
+    disponibile = true;
+};
+Book::Book(string isbn, string titolo, string nome, string cognome, bool disponibile)
+{
+    this->isbn = isbn;
+    this->titolo = titolo;
+    this->nome = nome;
+    this->cognome = cognome;
+    this->disponibile = true;
+}
+
+Book::Book(string nome, string cognome, string titolo, string isbn)
+{
+    this->nome = nome;
+    this->cognome = cognome;
+    this->titolo = titolo;
+    this->isbn = isbn;
+}
 
 string Book::getIsbn()
 {
@@ -136,4 +160,32 @@ bool Book::check_isbn(string isbn_number)
     }
 
     return true;
+}
+bool operator==(Book lib1, Book lib2)
+{
+    if (lib1.getIsbn() == lib2.getIsbn())
+    {
+        return true;
+    }
+    return false;
+}
+
+bool operator!=(Book lib1, Book lib2)
+{
+    if (lib1.getIsbn() != lib2.getIsbn())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+ostream &operator<<(ostream &os, Book lib1)
+{ // const Date& datina)
+    os << "Titolo: " << lib1.getTitolo() << "\n"
+       << "Autore: " << lib1.getNome() << " " << lib1.getCognome() << "\n"
+       << "Codice libro: " << lib1.getIsbn() << "\n";
+    return os;
 }

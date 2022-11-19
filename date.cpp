@@ -6,6 +6,13 @@
 
 using namespace std;
    
+
+    Date::Date(){
+        day=1;
+        month=1;
+        year=2000;
+    };
+
     void Date::setData(int d,int m,int y)
 
     {
@@ -78,3 +85,7 @@ bool Date::check_data(int day,int month,int year){
     }
     return true;
 }
+ostream& operator<<(ostream& os, Date datina){ //const Date& datina)
+    os<< "Data copyright: "<< datina.getData()<< "\n";
+        return os;
+} 

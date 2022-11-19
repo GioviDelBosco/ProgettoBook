@@ -3,14 +3,12 @@
 #include <string>
 #include "date.h"
 #include "book.h"
-#include "header.cpp"
 
 using namespace std;
 
 // per compilare g++ -std=c++0x -o test main.cpp book.cpp date.cpp
 // spiegazione qui https://stackoverflow.com/a/32062142
 
-//MODIFICHE:
 
 // main
 int main()
@@ -24,9 +22,13 @@ int main()
 
     bool continua = true;
 
-    vector<Book> shelf;
-    vector<Date> date;
-    vector<Book> loan; // libro prestito
+    vector<Book> shelf (10);
+    vector<Date> date (10);
+    vector<Book> loan (10); // libro prestito
+
+    Book my_favourite_book("David", "Foster Wallace", "Una cosa divertente che non faro' mai piu'", "887-521-837-4");
+    cout<<"\n";
+    cout<<my_favourite_book<<"\n";
 
     do
     {
@@ -81,6 +83,7 @@ int main()
         {
             for (int i = 0; i < shelf.size(); i++)
             {
+                cout << "========== LIBRO "<<(i+1)<<" ==========\n"<<"\n";
                 cout << shelf[i] << "\n";
                 cout << date[i] << "\n";
             }
@@ -129,6 +132,7 @@ int main()
     } while (continua == true);
 
     return 0;
+    
 }
 
 
