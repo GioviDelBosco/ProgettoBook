@@ -7,6 +7,9 @@
 
 using namespace std;
 
+//per compilare g++ -std=c++0x -o test main.cpp book.cpp date.cpp 
+//spiegazione qui https://stackoverflow.com/a/32062142
+
 // main
 int main()
 {
@@ -30,12 +33,10 @@ int main()
     cout << "\n";
     // Crea un oggetto Book inserendo i dati :D
     Book *libro = new Book(isbn, titolo, nome, cognome, true);
-
+    Date *data=new Date(5,10,2002);
     // Inserimento date
-    Date d;
-    d.setData();
-    cout << *libro << std::endl;
-    d.getData();
+    cout << *libro << endl;
+    cout << *data<<endl;
 
     return 0;
 }

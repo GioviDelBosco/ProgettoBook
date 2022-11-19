@@ -5,33 +5,18 @@
 #include "Date.h"
 
 using namespace std;
+   
+    void Date::setData(int d,int m,int y)
 
-
-Date::Date(int d,int m,int y)
     {
         day=d;
         month=m;
-        year=y;
-    }
-    void Date::setData()
-    {
-        int d,m,y;
-        cout<<"Inserire giorno: ";
-        cin>>d;
-        day=d;
-        cout<<"Inserire mese: ";
-        cin>>m;
-        month=m;
-        cout<<"Inserire anno: ";
-        cin>>y;
         year=y;
     }
     
     //risolvere sto schifo
     string Date::getData(){
-            string s="";
-            s=to_string(day);
-            return s;
+            return std::to_string(day)+"-"+to_string(month)+"-"+std::to_string(year);
     }
 
     bool check_bisestile(int year){

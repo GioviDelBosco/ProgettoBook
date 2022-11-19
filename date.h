@@ -10,9 +10,9 @@ using namespace std;
 class Date{
 
     public:
-    Date(int d=0, int m=0, int y=0);
+    Date(int day, int month , int year):  day(day), month(month), year(year){}
     //void setData(int day, int month, int year);
-    void setData();
+    void setData(int d,int m,int y);
     string getData();
     //void StampaData();
     bool check_data(int day, int month,int year);

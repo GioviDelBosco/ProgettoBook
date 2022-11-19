@@ -23,12 +23,12 @@ bool operator !=(Book lib1,Book lib2){
     }
 }
 
-ostream& operator<<(ostream& os, Book lib1){ //const Date& datina)
+ostream& Book::operator<<(ostream& os, Book lib1){ //const Date& datina)
     os<< "Titolo: "<< lib1.getTitolo()<< "\n"<< "Nome: "<<lib1.getNome()<< lib1.getCognome()<< "\n"<< "Codice libro: "<<lib1.getIsbn()<< "\n";
         return os;
 }    
 
-ostream& operator<<(ostream& os, Date datina){ //const Date& datina)
+ostream& Date::operator<<(ostream& os, Date datina){ //const Date& datina)
     os<< "Titolo: "<< datina.getData()<< "\n";
         return os;
 }  
