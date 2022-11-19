@@ -14,9 +14,8 @@ using namespace std;
         year=y;
     }
     
-    //risolvere sto schifo
     string Date::getData(){
-            return std::to_string(day)+"-"+to_string(month)+"-"+std::to_string(year);
+            return to_string(day)+"-"+to_string(month)+"-"+to_string(year);
     }
 
     bool check_bisestile(int year){

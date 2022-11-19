@@ -95,7 +95,7 @@ void Book::prestitoRestituzione(Book i)
     }
 }
 
-bool Book::check_isbn(string &isbn_number)
+bool Book::check_isbn(string isbn_number)
 { // controlla che la classe sia nel formato n-n-n-x
   // true is valid, false is NOT valid
     if (isbn_number.empty())

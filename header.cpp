@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include "book.h"
-#include "Date.h"
+#include "date.h"
 
 using namespace std; 
 //OVERLOAD
@@ -23,12 +23,12 @@ bool operator !=(Book lib1,Book lib2){
     }
 }
 
-ostream& Book::operator<<(ostream& os, Book lib1){ //const Date& datina)
-    os<< "Titolo: "<< lib1.getTitolo()<< "\n"<< "Nome: "<<lib1.getNome()<< lib1.getCognome()<< "\n"<< "Codice libro: "<<lib1.getIsbn()<< "\n";
+ostream& operator<<(ostream& os, Book lib1){ //const Date& datina)
+    os<< "Titolo: "<< lib1.getTitolo()<< "\n"<< "Autore: "<<lib1.getNome()<<" "<< lib1.getCognome()<< "\n"<< "Codice libro: "<<lib1.getIsbn()<< "\n";
         return os;
 }    
 
-ostream& Date::operator<<(ostream& os, Date datina){ //const Date& datina)
-    os<< "Titolo: "<< datina.getData()<< "\n";
+ostream& operator<<(ostream& os, Date datina){ //const Date& datina)
+    os<< "Data copyright: "<< datina.getData()<< "\n";
         return os;
 }  

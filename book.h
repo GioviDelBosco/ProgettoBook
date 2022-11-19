@@ -24,7 +24,7 @@ public:
     void setDisponibile(bool d);
     bool getDisponibile();
     void prestitoRestituzione(Book i);
-    bool check_isbn(string &isbn_number);
+    static bool check_isbn(string isbn_number);
     
 
 private:
