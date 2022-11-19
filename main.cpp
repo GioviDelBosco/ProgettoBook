@@ -10,6 +10,8 @@ using namespace std;
 // per compilare g++ -std=c++0x -o test main.cpp book.cpp date.cpp
 // spiegazione qui https://stackoverflow.com/a/32062142
 
+//MODIFICHE:
+
 // main
 int main()
 {
@@ -29,7 +31,7 @@ int main()
     do
     {
         int scelta;
-        cout << "Cosa vuoi fare?\n1-inserire un libro\n2-visualizza la libreria\n3-prendi in prestito un libro\n0-uscire\n";
+        cout << "Cosa vuoi fare?\n1-inserire un libro\n2-visualizza la libreria\n3-prendi in prestito un libro\n4-Restituire libro\n0-uscire\n";
         cout << "\n";
         cin >> scelta;
         cout << "\n";
@@ -93,18 +95,30 @@ int main()
             {
                 if (cercaLibro == shelf[i].getIsbn())
                 {
-                    Book::prestitoRestituzione(shelf[i]);
-                    if(shelf[i].getDisponibile()==false){
-                        cout<<"ci sono!!\n";
+                    Book::prestitoRestituzione(shelf[i]); 
+                    if(shelf[i].getDisponibile()==true){
                         loan.push_back(shelf[i]);
                         shelf.erase(shelf.begin() + i);
                     }
-                    cout << "\n";
+                    else{
+                        cout<<"Libro non disponibile\n";
+                    }
                     break;
                 }
             }
-        }
+        }//restituzione libro 
         break;
+        case 4:{
+            string restituisciLib;
+            cout << "Che libro vuoi restituire? (inserisci isbn)\n";
+            cin >> restituisciLib;
+            for (int i = 0; i < loan.size(); i++)
+            if(restituisciLib==loan[i].getIsbn()){
+                shelf.push_back(loan[i]);
+                loan.erase(loan.begin()+i);
+            }
+            
+        }break;
         case 0:
         {
             cout << "Uscito correttamente\n";
@@ -116,3 +130,6 @@ int main()
 
     return 0;
 }
+
+
+//disponibile false => libreria vuota
