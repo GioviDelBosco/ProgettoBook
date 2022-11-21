@@ -1,3 +1,10 @@
+//Progetto Book
+/*
+Gruppo: BGM
+Membri: Mattia Colapietro, Giuseppe Santoro, Giovanni Sgaravatto
+
+*/
+
 // file.cpp book
 #include <iostream>
 #include <string>
@@ -6,7 +13,7 @@
 using namespace std;
 Book::Book()
 {
-    isbn = "111-111-111-a";
+    isbn = "000-000-000-a";
     nome = "";
     cognome = "";
     titolo = "";
@@ -39,7 +46,7 @@ string Book::getNome()
 }
 string Book::getCognome()
 {
-    return cognome; // bella sgara
+    return cognome; 
 }
 string Book::getTitolo()
 {
@@ -183,7 +190,7 @@ bool operator!=(Book lib1, Book lib2)
 }
 
 ostream &operator<<(ostream &os, Book lib1)
-{ // const Date& datina)
+{ 
     os << "Titolo: " << lib1.getTitolo() << "\n"
        << "Autore: " << lib1.getNome() << " " << lib1.getCognome() << "\n"
        << "Codice libro: " << lib1.getIsbn() << "\n";

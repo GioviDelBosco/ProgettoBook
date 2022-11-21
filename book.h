@@ -1,3 +1,10 @@
+//Progetto Book
+/*
+Gruppo: BGM
+Membri: Mattia Colapietro, Giuseppe Santoro, Giovanni Sgaravatto
+
+*/
+
 //file.h Book
 #ifndef LIBRO
 #define LIBRO

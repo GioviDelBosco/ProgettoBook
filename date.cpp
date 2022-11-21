@@ -1,3 +1,10 @@
+//Progetto Book
+/*
+Gruppo: BGM
+Membri: Mattia Colapietro, Giuseppe Santoro, Giovanni Sgaravatto
+
+*/
+
 //file.cpp Date
 //CAMBIA NOME FILE
 #include<iostream>
@@ -85,7 +92,7 @@ bool Date::check_data(int day,int month,int year){
     }
     return true;
 }
-ostream& operator<<(ostream& os, Date datina){ //const Date& datina)
+ostream& operator<<(ostream& os, Date datina){
     os<< "Data copyright: "<< datina.getData()<< "\n";
         return os;
 } 

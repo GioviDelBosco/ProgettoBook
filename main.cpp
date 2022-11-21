@@ -1,3 +1,10 @@
+//Progetto Book
+/*
+Gruppo: BGM
+Membri: Mattia Colapietro, Giuseppe Santoro, Giovanni Sgaravatto
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,8 +40,10 @@ int main()
     do
     {
         int scelta;
+        cout<<"========== Benvenuti alla Biblioteca BGM ==========\n"<<endl;
         cout << "Cosa vuoi fare?\n1-inserire un libro\n2-visualizza la libreria\n3-prendi in prestito un libro\n4-Restituire libro\n0-uscire\n";
         cout << "\n";
+        cout<<"===================================================\n"<<endl;
         cin >> scelta;
         cout << "\n";
         switch (scelta)
@@ -47,14 +56,14 @@ int main()
                 cout << "Inserisci l'isbn (seguendo la sintassi nnn-nnn-nnn-x)\n";
                 cin >> isbn;
             } while (Book::check_isbn(isbn) == false);
-
-            cout << "Inserisci titolo\n";
+            
+            cout << "Inserisci titolo: ";
             cin.ignore();
-            getline(cin,titolo);
-            cout << "Inserisci nome\n";
-            getline(cin,nome);
-            cout << "Inserisci cognome\n";
-            getline(cin,cognome);
+            getline(cin, titolo);
+            cout << "Inserisci nome: ";
+            getline(cin, nome);
+            cout << "Inserisci cognome: ";
+            getline(cin, cognome); 
             cout << "\n";
             // Crea un oggetto Book inserendo i dati :D
             Book *libro = new Book(isbn, titolo, nome, cognome, true);
@@ -92,9 +101,13 @@ int main()
         break;
         case 3:
         {
-            string cercaLibro;
-            cout << "Che libro vuoi prendere in prestito? (inserisci isbn)\n";
-            cin >> cercaLibro;
+            if(shelf.size()==10){
+                cout<<"Nessun libro presente in biblioteca!\n"<<"\n";
+            }
+            else{
+                string cercaLibro;
+                cout << "Che libro vuoi prendere in prestito? (inserisci isbn)\n";
+                cin >> cercaLibro;
             for (int i = 0; i < shelf.size(); i++)
             {
                 if (cercaLibro == shelf[i].getIsbn())
@@ -103,12 +116,14 @@ int main()
                     if(shelf[i].getDisponibile()==true){
                         loan.push_back(shelf[i]);
                         shelf.erase(shelf.begin() + i);
+                        cout<<"Libro prestato\n"<<endl;
                     }
                     else{
-                        cout<<"Libro non disponibile\n";
+                        cout<<"Libro non disponibile\n"<<endl;
                     }
                     break;
                 }
+            }
             }
         }//restituzione libro 
         break;
@@ -117,15 +132,18 @@ int main()
             cout << "Che libro vuoi restituire? (inserisci isbn)\n";
             cin >> restituisciLib;
             for (int i = 0; i < loan.size(); i++)
-            if(restituisciLib==loan[i].getIsbn()){
+            if(restituisciLib == loan[i].getIsbn()){
                 shelf.push_back(loan[i]);
                 loan.erase(loan.begin()+i);
+                cout<<"Libro ritirato\n"<<endl;
             }
             
         }break;
+
         case 0:
         {
-            cout << "Uscito correttamente\n";
+            cout << "Programma terminato!\n";
+            cout<<"Grazie e buona giornata!\n";
             continua = false;
         }
         break;
@@ -135,4 +153,5 @@ int main()
     return 0;
     
 }
+
 //disponibile false => libreria vuota
