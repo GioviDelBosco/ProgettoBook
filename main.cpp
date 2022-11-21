@@ -41,7 +41,7 @@ int main()
     {
         int scelta;
         cout<<"========== Benvenuti alla Biblioteca BGM ==========\n"<<endl;
-        cout << "Cosa vuoi fare?\n1-inserire un libro\n2-visualizza la libreria\n3-prendi in prestito un libro\n4-Restituire libro\n0-uscire\n";
+        cout << "Cosa vuoi fare?\n1-Inserire un libro\n2-Visualizza la libreria\n3-Prendi in prestito un libro\n4-Restituire libro\n0-Uscire\n";
         cout << "\n";
         cout<<"===================================================\n"<<endl;
         cin >> scelta;
@@ -116,7 +116,7 @@ int main()
                     if(shelf[i].getDisponibile()==true){
                         loan.push_back(shelf[i]);
                         shelf.erase(shelf.begin() + i);
-                        cout<<"Libro prestato\n"<<endl;
+                       // cout<<"Libro prestato\n"<<endl;
                     }
                     else{
                         cout<<"Libro non disponibile\n"<<endl;

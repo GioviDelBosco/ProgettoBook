@@ -85,44 +85,17 @@ void Book::setDisponibile(bool d)
 }
 void Book::prestitoRestituzione(Book &i) // libro non disponibile??
 {
-    string scelta = "";
     Book isbn = i;
     if (isbn.getDisponibile() == false)
     {
-        cout << "Il libro non e' disponibile, vuoi restituirlo? (yes=si, no=no)\n";
-        cin >> scelta;
-        // scelgo se prendere il libro oppure no
-        if (scelta == "yes")
-        {
-            cout << "Hai restituito il libro!\n";
-            isbn.setDisponibile(true);
-        }
-        else if (scelta == "no")
-        {
-            cout << "non hai restituito il libro\n";
-        }
-        else
-        {
-            cout << "Commando sbagliato";
-        }
+        cout<<"Hai restituito il libro\n";
+        isbn.setDisponibile(true);
+
     }
     else if (isbn.getDisponibile() == true)
     {
-        cout << "Il libro e' disponibile, vuoi prenderlo? (yes=si, no=no)\n";
-        cin >> scelta;
-        if (scelta == "yes")
-        {
-            cout << "Hai preso il libro!\n";
-            isbn.setDisponibile(false);
-        }
-        else if (scelta == "no")
-        {
-            cout << "non hai preso il libro\n";
-        }
-        else
-        {
-            cout << "Commando sbagliato";
-        }
+        cout<<"Hai preso il libro\n";
+        isbn.setDisponibile(false);
     }
 }
 
