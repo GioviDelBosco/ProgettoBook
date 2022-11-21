@@ -49,11 +49,12 @@ int main()
             } while (Book::check_isbn(isbn) == false);
 
             cout << "Inserisci titolo\n";
-            cin >> titolo;
+            cin.ignore();
+            getline(cin,titolo);
             cout << "Inserisci nome\n";
-            cin >> nome;
+            getline(cin,nome);
             cout << "Inserisci cognome\n";
-            cin >> cognome;
+            getline(cin,cognome);
             cout << "\n";
             // Crea un oggetto Book inserendo i dati :D
             Book *libro = new Book(isbn, titolo, nome, cognome, true);
